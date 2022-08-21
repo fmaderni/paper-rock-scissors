@@ -1,0 +1,1 @@
+rock-paper-scissors project from odin. First big JS proyect. 
