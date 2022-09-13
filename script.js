@@ -4,31 +4,45 @@ let computerSelection;
 let btn = document.querySelectorAll(".button");
 let resultDiv = document.querySelector(".result");
 
-function playerChoice(button) {
-    playerSelection = button.value;
-    
-    const p = document.createElement('p');
-    p.innerText = playerSelection;
-    resultDiv.appendChild(p);
-};
-
 
 function computerChoice() {
     const arrOfChoices = ['Rock', 'Paper', 'Scissors'];
     const random = Math.floor(Math.random() * 3);
     computerSelection = arrOfChoices[random];
-    
-    const r = document.createElement('p');
-    r.innerText = computerSelection;
-    resultDiv.appendChild(r);
+
+    return computerSelection;
 };
+
+function playRound(playerSelection,computerSelection) {
+
+    if (playerSelection === computerSelection) {
+        const res = document.createElement('span');
+        res.innerText = "It's a tie!"
+        resultDiv.appendChild(res);
+    }
+    else if(playerSelection === "Rock" && computerSelection === "Scissors"){
+        const res = document.createElement('span');
+        res.innerText = "You win!"
+        resultDiv.appendChild(res);
+
+    }
+
+
+}
+
+
+
+
 
 
 btn.forEach((button) => {
     button.addEventListener('click', () => {
+        playerSelection = button.innerText;
+        playRound(playerSelection,computerChoice());
+        
+        
+        
 
-        playerChoice(button);
-        computerChoice();
 
     });
 });
