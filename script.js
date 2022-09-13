@@ -1,8 +1,12 @@
 
 let playerSelection;
 let computerSelection;
+let playerScore = 0
+let computerScore = 0
 let btn = document.querySelectorAll(".button");
 let resultDiv = document.querySelector(".result");
+let pscoreDiv = document.querySelector(".pscore");
+let cscoreDiv = document.querySelector(".cscore");
 
 
 function computerChoice() {
@@ -21,6 +25,11 @@ function playRound(playerSelection,computerSelection) {
         resultDiv.appendChild(res);
     }
     else if(playerSelection === "Rock" && computerSelection === "Scissors"){
+        playerScore = ++playerScore;
+        let score = document.createElement('span');
+        score = playerScore
+        pscoreDiv.insertAdjacentHTML("afterend",score);
+
         const res = document.createElement('span');
         res.innerText = "You win!"
         resultDiv.appendChild(res);
