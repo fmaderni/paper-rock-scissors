@@ -5,9 +5,10 @@ let playerScore = 0
 let computerScore = 0
 let btn = document.querySelectorAll(".button");
 let resultDiv = document.querySelector(".result");
-let pscoreDiv = document.querySelector(".pscore");
-let cscoreDiv = document.querySelector(".cscore");
-
+let pscore = document.querySelector(".psc");
+let cscore = document.querySelector(".csc");
+const score = document.createElement('p');
+const res = document.createElement('p');
 
 function computerChoice() {
     const arrOfChoices = ['Rock', 'Paper', 'Scissors'];
@@ -17,42 +18,82 @@ function computerChoice() {
     return computerSelection;
 };
 
-function playRound(playerSelection,computerSelection) {
+function displayPscore() {
+    playerScore = ++playerScore;
 
-    if (playerSelection === computerSelection) {
-        const res = document.createElement('span');
-        res.innerText = "It's a tie!"
-        resultDiv.appendChild(res);
-    }
-    else if(playerSelection === "Rock" && computerSelection === "Scissors"){
-        playerScore = ++playerScore;
-        let score = document.createElement('span');
-        score = playerScore
-        pscoreDiv.insertAdjacentHTML("afterend",score);
+    score.innerText = playerScore
+    pscore.appendChild(score);
 
-        const res = document.createElement('span');
-        res.innerText = "You win!"
-        resultDiv.appendChild(res);
+    res.innerText = "You win!"
+    resultDiv.appendChild(res);
+}
 
-    }
+function displayCscore() {
+    computerScore = ++computerScore;
 
+    score.innerText = computerScore
+    cscore.appendChild(score);
 
+    res.innerText = "Computer Wins!"
+    resultDiv.appendChild(res);
 }
 
 
 
+function playRound(playerSelection, computerSelection) {
+
+    if (playerSelection === computerSelection) {
+
+        res.innerText = "It's a tie!"
+        resultDiv.appendChild(res);
+    }
+    else
+        if (playerSelection === "Rock") {
+
+            if (computerSelection === "Scissors") {
+                displayPscore();
+            }
+            if (computerSelection === "Paper") {
+                displayCscore();
+            }
+        }
+        else
+            if (playerSelection === "Paper") {
+
+                if (computerSelection === "Rock") {
+                    displayPscore();
+                } else
+                    if (computerSelection === "Scissors") {
+                        displayCscore();
+                    }
+            }
+            else
+                if (playerSelection === "Scissors") {
+
+                    if (computerSelection === "Paper") {
+                        displayPscore();
+                    } else
+                        if (computerSelection === "Rock") {
+                            displayCscore();
+                        }
+                }
+
+}
 
 
 
 btn.forEach((button) => {
     button.addEventListener('click', () => {
         playerSelection = button.innerText;
-        playRound(playerSelection,computerChoice());
-        
-        
-        
+        computerChoice();
+        console.log(playerSelection);
+        console.log(computerSelection);
+        playRound(playerSelection,computerSelection);
+
+
+
+
 
 
     });
-});
-
+})
