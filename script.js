@@ -38,7 +38,20 @@ function displayCscore() {
     resultDiv.appendChild(res);
 }
 
+function checkWinner(playerScore, computerScore) {
+    if (playerScore === 5) {
 
+        const h2 = document.createElement('h2');
+        h2.innerText = 'You defeated the machine! The wolrd has been saved!'
+        resultDiv.appendChild(h2);
+    }
+    else
+        if (computerScore === 5) {
+            const h2 = document.createElement('h2');
+            h2.innerText = 'You lost. The world has been destroyed'
+            resultDiv.appendChild(h2);
+        }
+}
 
 function playRound(playerSelection, computerSelection) {
 
@@ -86,14 +99,9 @@ btn.forEach((button) => {
     button.addEventListener('click', () => {
         playerSelection = button.innerText;
         computerChoice();
-        console.log(playerSelection);
-        console.log(computerSelection);
-        playRound(playerSelection,computerSelection);
-
-
-
-
-
+      
+        playRound(playerSelection, computerSelection);
+        checkWinner(playerScore,computerScore);
 
     });
 })
