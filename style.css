@@ -35,10 +35,63 @@ body {
     width: 180px;
     height: 50px;
 }
+
 .button:hover {
     cursor: pointer;
-    box-shadow: 0px 4px 10px 4px #ffffff;
+    box-shadow: 0px 4px 10px 4px #5a6ab8;  
 }
 
+ .ascore {
+    display: flex;
+    width: auto;
+    justify-content: space-evenly;
+    font-family: 'Inter var',system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 25px;
 
+}
 
+.psc {
+    margin-top: 1.7rem;
+}
+
+.bscore {
+    display: flex;
+    width: auto;
+    justify-content: space-evenly;
+    font-family: 'Inter var',system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 25px;
+
+}
+
+.csc {
+    margin-top: 1.7rem;
+}
+
+.reset{
+    background-color: #022b81da;
+    border: 1px solid transparent;
+    border-radius: 0.75rem;
+    box-sizing: border-box;
+    color: rgba(212, 212, 212, 0.863);
+    flex: 0 0 auto;
+    font-family: 'Inter var',system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    text-align: center;
+    width: 180px;
+    height: 50px;
+}
+.reset:hover{
+    cursor: pointer;
+    box-shadow: 0px 4px 10px 4px #5a6ab8;  
+}
+
+div h3 {
+    font-size: 25px;
+
+}
+
+div h2 {
+    font-size: 35px;
+}

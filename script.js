@@ -9,7 +9,7 @@ let pscore = document.querySelector(".psc");
 let cscore = document.querySelector(".csc");
 const pScore = document.createElement('span');
 const cScore = document.createElement('span');
-const res = document.createElement('p');
+const res = document.createElement('h3');
 
 function computerChoice() {
     const arrOfChoices = ['Rock', 'Paper', 'Scissors'];
@@ -39,6 +39,21 @@ function displayCscore() {
     resultDiv.appendChild(res);
 }
 
+function resetGame(playerScore,computerScore) {
+    if(playerScore === 5 || computerScore === 5) {
+        
+        const reset = document.createElement('button');
+        reset.classList.add("reset");
+        reset.innerText = 'Play again';
+        resultDiv.appendChild(reset);
+
+        const refreshPage = () => {
+            location.reload();
+        }
+
+        reset.addEventListener('click',refreshPage);
+    }
+}
 
 function checkWinner(playerScore, computerScore) {
     if (playerScore === 5) {
@@ -103,6 +118,8 @@ btn.forEach((button) => {
       
         playRound(playerSelection, computerSelection);
         checkWinner(playerScore,computerScore);
+        resetGame(playerScore,computerScore);
 
     });
 })
+
