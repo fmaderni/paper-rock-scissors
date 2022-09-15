@@ -7,7 +7,8 @@ let btn = document.querySelectorAll(".button");
 let resultDiv = document.querySelector(".result");
 let pscore = document.querySelector(".psc");
 let cscore = document.querySelector(".csc");
-const score = document.createElement('p');
+const pScore = document.createElement('span');
+const cScore = document.createElement('span');
 const res = document.createElement('p');
 
 function computerChoice() {
@@ -21,8 +22,8 @@ function computerChoice() {
 function displayPscore() {
     playerScore = ++playerScore;
 
-    score.innerText = playerScore
-    pscore.appendChild(score);
+    pScore.innerText = `${playerScore}`
+    pscore.appendChild(pScore);
 
     res.innerText = "You win!"
     resultDiv.appendChild(res);
@@ -31,18 +32,19 @@ function displayPscore() {
 function displayCscore() {
     computerScore = ++computerScore;
 
-    score.innerText = computerScore
-    cscore.appendChild(score);
+    cScore.innerText = `${computerScore}`
+    cscore.appendChild(cScore);
 
     res.innerText = "Computer Wins!"
     resultDiv.appendChild(res);
 }
 
+
 function checkWinner(playerScore, computerScore) {
     if (playerScore === 5) {
 
         const h2 = document.createElement('h2');
-        h2.innerText = 'You defeated the machine! The wolrd has been saved!'
+        h2.innerText = 'You defeated the machine! The world has been saved!'
         resultDiv.appendChild(h2);
     }
     else
@@ -92,7 +94,6 @@ function playRound(playerSelection, computerSelection) {
                 }
 
 }
-
 
 
 btn.forEach((button) => {
